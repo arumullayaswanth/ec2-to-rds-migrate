@@ -236,6 +236,21 @@ SHOW TABLES;
 
 ---
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
 ## ✅ SETUP DATABASE MIGRATION SERVICE
 
 ### 🔹 Step 1: Create Replication Instance & IAM Role
