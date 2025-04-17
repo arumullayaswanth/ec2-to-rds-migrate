@@ -372,8 +372,8 @@ Click **Create replication instance**
 
 ### 🔹 4.5 Table Mappings
 - Click on **Selection rules** → Add new selection rule:  
-  - **Schema:** `vsv`  (vsv is my datadase name) 
-  - **Table name:** `customers`  (enteryour table name here [i am create customers table vsv database] 
+  - **Schema:** `vsv`  [(vsv is my datadase name) or give % it wii take all datadase]
+  - **Table name:** `customers`  (enteryour table name here [i am create customers table vsv database] or give % it wii take all table)
   - **Action:** Include  
 
 ### 🔹 4.6 Final Configuration
