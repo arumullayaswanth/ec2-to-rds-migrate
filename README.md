@@ -305,8 +305,8 @@ Click **Create replication instance**
 - **Source engine:** MySQL  
 - **Access method:** Provide access information manually 
   **Fill in:**
-       **Copy EC2 DNS:**
-          - Go to your EC2 instance (source Ec2-rds instance ) open --> Copy Public IPv4 DNS
+   **Copy EC2 DNS:**
+  - Go to your EC2 instance (source Ec2-rds instance ) open --> Copy Public IPv4 DNS
   - **Server name:** Paste source Ec2-rds instance Public IPv4 DNS (eg: ec2-18-234-236-228.compute-1.amazonaws.com)
   -  **Port:** 3306
   -  **Username:** root
