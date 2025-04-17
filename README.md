@@ -161,7 +161,7 @@ FLUSH PRIVILEGES;
 
 # ✅ Step 5: Create MySQL Database for TARGET on AWS (RDS)
 
-## 🔹 1. Launch MySQL RDS Instance
+### 🔹 1. Launch MySQL RDS Instance
 1. Go to the AWS Console.
 2. In the Search Bar, type RDS and select it from the dropdown.
 3. In the left-side menu of the RDS Dashboard, click **Databases**.
@@ -170,7 +170,7 @@ FLUSH PRIVILEGES;
 
 ---
 
-## 🔹 2. Set Configuration
+### 🔹 2. Set Configuration
 - **Engine type:** MySQL  
 - **Version:** MySQL 8.4.3  
 - **Templates:** Free tier  
