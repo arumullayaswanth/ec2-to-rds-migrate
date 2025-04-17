@@ -284,7 +284,7 @@ SHOW TABLES;
 Click **Create replication instance**
 
 ---
-
+## 📄 TARGET ENDPOINT CREATION (Step 3) ##
 ### 🔹 Step 2: Create Endpoints (Source & Target)
 
 #### 🔸 2.1 Go to DMS → Endpoints → Click Create Endpoint
