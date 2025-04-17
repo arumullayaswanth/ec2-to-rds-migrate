@@ -251,9 +251,9 @@ SHOW TABLES;
 
 
 ---
-## ✅ SETUP DATABASE MIGRATION SERVICE
+# ✅ SETUP DATABASE MIGRATION SERVICE
 
-### 🔹 Step 1: Create Replication Instance & IAM Role
+### ✅ Step 1: Create Replication Instance & IAM Role
 
 #### 🔸 1.1 Go to DMS:
 - In AWS Console, search for **Database Migration Service** and open it.  
@@ -285,13 +285,13 @@ Click **Create replication instance**
 
 ---
 
-### 🔹 Step 2: Create Endpoints (Source & Target)
+## ✅ Step 2: Create Endpoints (Source Endpoint) (source endpoint we have to give the ec2 instance information)
 
-#### 🔸 2.1 Go to DMS → Endpoints → Click Create Endpoint
+    #### 🔸 2.1 Go to DMS → Endpoints → Click Create Endpoint
 
-#### 🔹 SOURCE Endpoint (EC2 MySQL Database)
+            #### 🔹 SOURCE Endpoint (EC2 MySQL Database)
 
-##### 🔸 2.2 Create IAM Role for Endpoint (if prompted):
+#### 🔸 2.2 Create IAM Role for Endpoint (if prompted):
 - **Go to IAM → Create Role**  
 - **Trusted entity:** AWS Service  
 - **Use case:** DMS  
@@ -299,20 +299,18 @@ Click **Create replication instance**
 - **Role Name:** `dms-cloudwatch-log-role`  
 - Click **Create Role**
 
-##### 🔸 2.3 Configure Endpoint (Source):
+#### 🔸 2.3 Configure Endpoint (Source Endpoint):
 - **Endpoint type:** Source  
-- **Endpoint identifier:** `source-from-ec2-db`  
+- **Endpoint identifier:** `source-from-ec2-db`  //any name
 - **Source engine:** MySQL  
-- **Access method:** Provide access information manually  
-
-**Copy EC2 DNS:**
-- Go to your EC2 instance (ec2-rds) → Copy Public IPv4 DNS  
-
-**Fill in:**
-- **Server name:** Paste EC2 DNS  
-- **Port:** 3306  
-- **Username:** root  
-- **Password:** `yaswanth123`  
+- **Access method:** Provide access information manually 
+  **Fill in:**
+       **Copy EC2 DNS:**
+          - Go to your EC2 instance (source Ec2-rds instance ) open --> Copy Public IPv4 DNS  
+                - **Server name:** Paste source Ec2-rds instance Public IPv4 DNS (eg: ec2-18-234-236-228.compute-1.amazonaws.com)
+                   - **Port:** 3306  
+                      - **Username:** root  
+                         - **Password:** `yaswanth123`  
 
 ##### 🔸 2.4 Test Connection:
 - Scroll down and click **Run Test**  
@@ -321,14 +319,15 @@ Click **Create replication instance**
 
 ---
 
-## ✅ Step 3: Create Target Endpoint (RDS MySQL)
+## ✅ Step 3: Create Target Endpoint (RDS MySQL) (target endpoint we have to give the Rds information)
 
 ### 🔹 3.1 Open AWS DMS → Endpoints → Click Create Endpoint
 
 ### 🔹 3.2 Configure the Target Endpoint
-- **Endpoint type:** Target  
+- **Endpoint type:** Target Endpoint
+- **✅Select RDS DB instance**
 - **Select RDS DB instance:** Select `my-sqlserver-db`  
-- **Endpoint identifier:** `target-rds`  
+- **Endpoint identifier:** `target-rds`  // give any name
 - **Target engine:** MySQL  
 
 ### 🔹 3.3 Access Configuration
