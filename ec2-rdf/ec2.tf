@@ -34,6 +34,9 @@ resource "aws_security_group" "allow_all_traffic" {
     protocol    = "-1" # "-1" signifies all protocols.
     cidr_blocks = ["0.0.0.0/0"]
   }
+  tags = {
+    Name = "database-securitygroup"
+  }
 }
 
 ##########################
