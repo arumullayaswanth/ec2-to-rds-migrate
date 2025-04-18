@@ -311,7 +311,9 @@ git push origin master
 ```bash
 terraform init
 terraform plan
-terraform apply
+terraform apply -auto-approve
+# terraform destroy -auto-approve
+
 ```
 ---
 
