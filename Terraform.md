@@ -2,12 +2,48 @@
 
 ## ✅ Step 1: Push Terraform Code to GitHub from VS Code
 ```bash
-cd ~/Downloads
+cd 
+```
+```bash
+cd Downloads
+```
+```bash
 mkdir ec2-to-rds-migrate
+```
+```bash
 cd ec2-to-rds-migrate
+```
+```bash
 git clone https://github.com/arumullayaswanth/ec2-to-rds-migrate.git
+```
+```bash
 cd ec2-to-rds-migrate
 ls
+```
+```bash
+ls
+```
+```bash
+cd ec2-rds
+```
+```bash
+terraform init
+```
+```bash
+terraform validate
+```
+```bash
+terraform plan
+```
+
+```bash
+terraform apply -auto-approve
+```
+**To delete both your EC2 instance and RDS instance using Terraform, you need to  this command**
+
+terraform destroy -auto-approve
+```bash
+terraform destroy -auto-approve
 ```
 
 ---
@@ -94,7 +130,7 @@ Click **Create Database**
 
 ## ✅ Step 6: Connect to EC2 Instance
 1. Go to **EC2 → Instances**
-2. Select `database-source-ec2`
+2. Select `database-mysql`
 3. Click **Connect → EC2 Instance Connect** or use SSH
 
 ---
