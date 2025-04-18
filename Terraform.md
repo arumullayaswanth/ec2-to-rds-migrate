@@ -67,18 +67,26 @@ Click **Create Database**
 
 ---
 ## ✅ Step 5: Launch Source EC2 Instance
-1. Go to **EC2 Console → Launch Instance**
-2. Name: `database-source-ec2`
-3. AMI: Amazon Linux 2
-4. Instance Type: `t2.micro`
-5. Key Pair: Choose existing or create new
-6. Security Group:
-   - Inbound Rule:
+1. Go to EC2 Console → Click on "Launch Instance"
+2. **Name and Tags**
+   - Name: `database-source-ec2`
+3. **Application and OS Images (AMI)**
+   - Select: `Amazon Linux 2 AMI (HVM) – Kernel 5.10, SSD Volume Type`
+4. **Instance Type**
+   - Choose: `t2.micro (Free Tier eligible)`
+5. **Key Pair (Login)**
+   - Choose your key pair: `my-key-pair`
+6. **Network Settings**
+   - Select Allow all traffic (Security Group)
+   - Or manually Add Inbound Rule:
      - Type: MySQL/Aurora
-     - Port: 3306
-     - Source: Your IP
-7. Leave storage as default (8 GiB SSD)
-8. Launch the instance
+     - Protocol: TCP
+     - Port Range: 3306
+     - Source: Your IP (or specific IP range)
+7. **Configure Storage**
+   - Leave default (8 GiB General Purpose SSD)
+8. **Launch Instance**
+
 
 ---
 
