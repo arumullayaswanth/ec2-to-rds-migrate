@@ -53,7 +53,7 @@ ls
 - **Master Password:** `Yaswanth123reddy`  
 - **Confirm Password:** `Yaswanth123reddy`
 
-## 🔹 3. Instance & Network Settings
+### 🔹 3. Instance & Network Settings
 - **DB Instance Class:** `db.t3.micro`  
 - **Storage:** 20 GiB  
 - **Compute Resources:** Don’t connect to EC2  
