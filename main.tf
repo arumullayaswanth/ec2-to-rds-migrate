@@ -5,7 +5,7 @@ provider "aws" {
 }
 resource "aws_dms_replication_instance" "dms_replication_instance" { 
   allocated_storage           = 10 
-  engine_version = "3.5.2"
+  engine_version = "3.5.3"
   apply_immediately           = true 
   auto_minor_version_upgrade  = true 
   replication_instance_class  = "dms.t3.medium" 
