@@ -218,19 +218,11 @@ SHOW TABLES;
 > These records assume the table has already been expanded with additional fields like `email`, `phone`, etc. If not, you should alter the table accordingly.
 
 ```sql
-INSERT INTO user (
-    customer_id, first_name, last_name, email, phone, company, city, state, country, postal_code, address_line1, address_line2, is_active
-) VALUES 
-('CUST1006', 'Aisha', 'Khan', 'aisha.khan@example.com', '+91-9876543210', 'TechNova', 'Mumbai', 'MH', 'India', '400001', '14 Marine Drive', 'Floor 3', TRUE),
-('CUST1007', 'Liam', 'O\'Connor', 'liam.oconnor@example.com', '+353-85-1234567', 'GreenFields Ltd.', 'Dublin', NULL, 'Ireland', 'D02 Y006', '25 St. Stephen\'s Green', NULL, TRUE),
-('CUST1008', 'Mia', 'López', 'mia.lopez@example.com', '+34-600-123-456', 'SolarTech', 'Barcelona', 'Catalonia', 'Spain', '08001', 'Carrer de Balmes 45', NULL, FALSE),
-('CUST1009', 'Noah', 'Kim', 'noah.kim@example.com', '+82-10-1234-5678', 'NeoGen', 'Seoul', NULL, 'South Korea', '04524', '77 Gwanghwamun-ro', NULL, TRUE),
-('CUST1010', 'Olivia', 'Nguyen', 'olivia.nguyen@example.com', '+84-90-123-4567', 'VN Digital', 'Ho Chi Minh City', NULL, 'Vietnam', '700000', '100 Nguyen Hue', NULL, TRUE),
-('CUST1011', 'Ethan', 'Brown', 'ethan.brown@example.com', '+1-312-555-0198', 'WindyTech', 'Chicago', 'IL', 'USA', '60601', '500 Michigan Ave', 'Suite 301', TRUE),
-('CUST1012', 'Sophia', 'Meier', 'sophia.meier@example.com', '+49-170-1234567', 'München Tech', 'Munich', 'Bavaria', 'Germany', '80331', 'Karlsplatz 3', NULL, TRUE),
-('CUST1013', 'Lucas', 'Dubois', 'lucas.dubois@example.com', '+33-6-12-34-56-78', 'PariTech', 'Paris', 'Île-de-France', 'France', '75001', '10 Rue de Rivoli', NULL, FALSE),
-('CUST1014', 'Chloe', 'Wilson', 'chloe.wilson@example.com', '+1-604-555-0123', 'Maple Systems', 'Vancouver', 'BC', 'Canada', 'V6B 3K9', '808 Granville St', NULL, TRUE),
-('CUST1015', 'Jack', 'Taylor', 'jack.taylor@example.com', '+61-3-9123-4567', 'Southern Solutions', 'Melbourne', 'VIC', 'Australia', '3000', '55 Collins St', 'Level 6', TRUE);
+INSERT INTO user (customer_id, first_name, last_name, company, city) VALUES
+('CUST1001', 'John', 'Doe', 'TechCorp', 'New York'),
+('CUST1002', 'Jane', 'Smith', 'InnovateX', 'San Francisco'),
+('CUST1003', 'Aidan', 'Brown', 'GlobalTech', 'Los Angeles');
+
 ```
 
 ---
