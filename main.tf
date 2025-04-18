@@ -57,7 +57,7 @@ resource "aws_dms_endpoint" "target_endpoint" {
   username        = "admin"
   password        = "Yaswanth123reddy"
   port            = 3306
-  server_name     = "dms.c7s0iqse4usm.us-east-1.rds.amazonaws.com"
+  server_name     = "my-rds-db.c0n8k0a0swtz.us-east-1.rds.amazonaws.com"  #databade end point
   depends_on      = [aws_dms_replication_instance.dms_replication_instance]
 
   tags = {
