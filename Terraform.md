@@ -1,65 +1,71 @@
 # 🚀 EC2 to RDS MySQL Migration using Terraform, GitHub, and AWS DMS
+     ## EC2 to RDS Migration with Terraform
 
 ## ✅ Step 1: Push Terraform Code to GitHub from VS Code
+**1. Navigate to the Home Directory**
 ```bash
 cd 
 ```
+**2. Go to the Downloads Folder**
 ```bash
 cd Downloads
 ```
+**3. Create a New Directory for the Project**
 ```bash
 mkdir ec2-to-rds-migrate
 ```
+**4. Change Into the New Directory**
 ```bash
 cd ec2-to-rds-migrate
 ```
+**5. Clone the GitHub Repository**
 ```bash
 git clone https://github.com/arumullayaswanth/ec2-to-rds-migrate.git
 ```
+**6. Change Into the Cloned Directory**
 ```bash
 cd ec2-to-rds-migrate
 ```
+**7. List the Files in the Directory**
 ```bash
 ls
 ```
+**8. Navigate to the ec2-rds Folder**
 ```bash
 cd ec2-rds
 ```
+**9. Initialize Terraform**
 ```bash
 terraform init
 ```
+**10. Validate the Terraform Configuration**
 ```bash
 terraform validate
 ```
+**11. Preview the Changes Terraform Will Make**
 ```bash
 terraform plan
 ```
-
+**12. Apply the Terraform Configuration**
 ```bash
 terraform apply -auto-approve
 ```
-**To delete both your EC2 instance and RDS instance using Terraform, you need to  this command**
+##Steps to Delete EC2 and RDS Instances Using Terraform
+13.**To delete both your EC2 instance and RDS instance using Terraform, you need to  this command**
 
 ```bash
 terraform destroy -auto-approve
 ```
-
 ---
 
-
-
-
-
----
-
-## ✅ Step 6: Connect to EC2 Instance
+## ✅ Step 2: Connect to EC2 Instance
 1. Go to **EC2 → Instances**
 2. Select `database-mysql`
 3. Click **Connect → EC2 Instance Connect** or use SSH
 
 ---
 
-## ✅ Step 7: Install and Configure MySQL 8.0 on Source EC2
+## ✅ Step 3: Run this commands on database-mysql ec2 instance
 
 1. **Retrieve Temporary Root Password**
    ```bash
@@ -220,16 +226,28 @@ FLUSH PRIVILEGES;
 
 ---
 
+## ✅ step-7: Step-by-Step: Configure RDS Migration with Terraform
+
+**1. Change Into the Cloned Directory**
 ```bash
 cd ec2-to-rds-migrate
 ```
+**2. List the Files in the Directory**
 ```bash
 ls
 ```
+**3. Navigate to the ec2-rds Folder**
 ```bash
-cd dns
+cd rds
 ```
+📂 Step 2: Ensure your Terraform files are ready
+Inside the rds folder, you should have:
 
+main.tf
+
+dms.json
+
+table_mappings.json
 
 
 
