@@ -44,6 +44,7 @@ resource "aws_db_subnet_group" "sub_grps" {
 ##########################
 # RDS instance creation using the subnet group
 resource "aws_db_instance" "example" {
+  identifier            = "my-rds-db"  # <-- DB Identifier added
   allocated_storage    = 20  # In GB
   storage_type         = "gp2"  # General Purpose SSD
   engine               = "mysql"  # Use "postgres", "oracle", etc., if needed
@@ -64,6 +65,6 @@ resource "aws_db_instance" "example" {
   publicly_accessible  = true
   backup_retention_period = 7
   tags = {
-    Name = "MyRDSInstance"
+    Name = "MyRDS-Instance"
   }
 }
