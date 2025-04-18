@@ -41,8 +41,6 @@ ls
 4. Click **Create Database**.
 5. Choose **Standard Create**.
 
----
-
 ### 🔹 2. Set Configuration
 - **Engine type:** MySQL  
 - **Version:** MySQL 8.4.3  
@@ -54,8 +52,6 @@ ls
 - **Password Management:** Self-managed  
 - **Master Password:** `Yaswanth123reddy`  
 - **Confirm Password:** `Yaswanth123reddy`
-
----
 
 ## 🔹 3. Instance & Network Settings
 - **DB Instance Class:** `db.t3.micro`  
