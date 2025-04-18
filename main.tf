@@ -21,7 +21,7 @@ resource "aws_dms_endpoint" "source_endpoint" {
   username        = "root"  // substitute with your database username 
   password        = "Admin@123"  // substitute with your database password 
   port            = "3306"
-  server_name     = "ec2-13-232-36-249.ap-south-1.compute.amazonaws.com"  // substitute with your source server name 
+  server_name     = "ec2-44-220-152-88.compute-1.amazonaws.com"  // substitute with your source server name // replace with you source Ec2-rds instance Copy Public IPv4 DNS
   depends_on = [ aws_dms_replication_instance.dms_replication_instance ]
 } 
  
@@ -32,8 +32,8 @@ resource "aws_dms_endpoint" "target_endpoint" {
  port             = "3306"
   engine_name     = "mysql"  // substitute here with the name of your target database engine 
   username        = "admin"  // substitute with your database username 
-  password        = "srivardhan1211"  // substitute with your database password 
-  server_name     = "dms.c7s0iqse4usm.ap-south-1.rds.amazonaws.com"  // substitute with your target server name 
+  password        = "Yaswanth123reddy"  // substitute with your database password 
+  server_name     = "dms.c7s0iqse4usm.us-east-1.rds.amazonaws.com"  // substitute with your target server name 
   depends_on = [ aws_dms_replication_instance.dms_replication_instance ]
 } 
  

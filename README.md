@@ -85,7 +85,7 @@
   ```bash
   sudo mysql -u root -p
   ```
-  Enter Yaswanth@123 when prompted.
+  Enter Admin@123 when prompted.
  
 11. **Create a New Database and Table**
    ```sql
@@ -209,7 +209,7 @@ FLUSH PRIVILEGES;
 
 ## Step 5: Optional - Reconfirm Root Password for '%'
 ```sql
-ALTER USER 'root'@'%' IDENTIFIED BY 'Yaswanth@123';
+ALTER USER 'root'@'%' IDENTIFIED BY 'Admin@123';
 FLUSH PRIVILEGES;
 ```
 ---
@@ -236,8 +236,8 @@ FLUSH PRIVILEGES;
 ### 🔸 Credentials Settings:
 - **Master Username:** `admin`  
 - **Password Management:** Self-managed  
-- **Master Password:** `yaswanth123`  
-- **Confirm Password:** `yaswanth123`
+- **Master Password:** `Yaswanth123reddy`  
+- **Confirm Password:** `Yaswanth123reddy`
 
 ---
 
@@ -274,7 +274,7 @@ Click **Create Database**
    - **Hostname:** `my-sqlserver-dbc0n8k0a0swtz.us-east-1.rds.amazonaws.com`  
    - **Port:** 3306  
    - **Username:** admin  
-   - **Password:** Click “Store in Vault” → Enter `yaswanth123`  
+   - **Password:** Click “Store in Vault” → Enter `Yaswanth123reddy`  
 4. Click **Test Connection**  
    - ✅ If successful: “Connection parameters are correct.”  
 5. Click **OK** to save the connection.
@@ -367,7 +367,7 @@ Click **Create replication instance**
   - **Server name:** Paste source Ec2-rds instance Public IPv4 DNS (eg: ec2-18-234-236-228.compute-1.amazonaws.com)
   -  **Port:** 3306
   -  **Username:** root
-  -  **Password:** `yaswanth123`  
+  -  **Password:** `Admin@123`  
 
 ##### 🔸 2.4 Test Connection:
 - Scroll down and click **Run Test**  
@@ -392,7 +392,7 @@ Click **Create replication instance**
 - **Server name:** (auto-filled RDS Endpoint)  
 - **Port:** 3306  
 - **Username:** admin  
-- **Password:** `yaswanth123`  
+- **Password:** `Yaswanth123reddy`  
 
 ### 🔹 3.4 Test the Connection
 - **Select Replication Instance:** `ec2-rds`  
