@@ -3,7 +3,7 @@
 ##########################
 
 # Security Group for RDS
-resource "aws_security_group" "mysql" {
+resource "aws_security_group" "mysql_sg" {
   name = "mysql-sg"
   
   ingress {
@@ -43,7 +43,7 @@ resource "aws_db_subnet_group" "sub_grps" {
 # 5. RDS MySQL Instance
 ##########################
 # RDS instance creation using the subnet group
-resource "aws_db_instance" "example" {
+resource "aws_db_instance" "mysal_db" {
   identifier            = "my-rds-db"  # <-- DB Identifier added
   allocated_storage    = 20  # In GB
   storage_type         = "gp2"  # General Purpose SSD
@@ -57,7 +57,7 @@ resource "aws_db_instance" "example" {
   db_subnet_group_name = aws_db_subnet_group.sub_grps.name  # Reference the DB subnet group
 
   parameter_group_name = "default.mysql8.0"
-  vpc_security_group_ids = [aws_security_group.mysql.id]
+  vpc_security_group_ids = [aws_security_group.mysql_sg.id]
 
   # Optional parameters
   multi_az             = false
