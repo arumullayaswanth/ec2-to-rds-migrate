@@ -78,7 +78,7 @@
 
 9. **Change the Root Password**
    ```bash
-   ALTER USER 'root'@'localhost' IDENTIFIED BY 'Yaswanth@123';
+   ALTER USER 'root'@'localhost' IDENTIFIED BY 'Admin@123';
    SHOW DATABASES;
    ```
 10. **Exit and Re-login with the New Password**
@@ -188,7 +188,7 @@ SELECT user, host FROM mysql.user WHERE user = 'root';
 
 2. **Create Root User for Any Host (if not exists)**
 ```sql
-CREATE USER 'root'@'%' IDENTIFIED BY 'Yaswanth@123';
+CREATE USER 'root'@'%' IDENTIFIED BY 'Admin@123';
 ```
 
 ---
