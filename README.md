@@ -117,9 +117,9 @@
    SELECT * FROM vsv.customers;
    ```
 
-# User Table SQL Script
+14 **User Table SQL Script**
 
-## 📄 Table Creation
+# Table Creation
 
 ```sql
 CREATE TABLE user (
@@ -134,7 +134,7 @@ CREATE TABLE user (
 
 ---
 
-## 📂 Show All Tables
+15. **how All Tables**
 
 ```sql
 SHOW TABLES;
@@ -142,7 +142,7 @@ SHOW TABLES;
 
 ---
 
-## 📥 Insert Sample Data
+16. **Insert Sample Data**
 
 > These records assume the table has already been expanded with additional fields like `email`, `phone`, etc. If not, you should alter the table accordingly.
 
@@ -164,7 +164,7 @@ INSERT INTO user (
 
 ---
 
-## 📊 Query the Table
+17. **Query the Table**
 
 ```sql
 SELECT * FROM vsv.user;
@@ -179,41 +179,40 @@ SELECT * FROM vsv.user;
 
 # ✅ Step 4: Grant Remote Access and Permissions
 
-## Step 1: Check Existing Users
+1. **Check Existing Users**
 ```sql
 SELECT user, host FROM mysql.user WHERE user = 'root';
 ```
 
 ---
 
-## Step 2: Create Root User for Any Host (if not exists)
+2. **Create Root User for Any Host (if not exists)**
 ```sql
 CREATE USER 'root'@'%' IDENTIFIED BY 'Yaswanth@123';
 ```
 
 ---
 
-## Step 3: Grant All Privileges to Root
+3. **Grant All Privileges to Root**
 ```sql
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
 ```
 
 ---
 
-## Step 4: Apply Changes
+4. **Apply Changes**
 ```sql
 FLUSH PRIVILEGES;
 ```
 
 ---
 
-## Step 5: Optional - Reconfirm Root Password for '%'
+5. **Optional - Reconfirm Root Password for '%**'
 ```sql
 ALTER USER 'root'@'%' IDENTIFIED BY 'Admin@123';
 FLUSH PRIVILEGES;
 ```
 ---
-
 
 
 # ✅ Step 5: Create MySQL Database for TARGET on AWS (RDS)
@@ -248,7 +247,7 @@ FLUSH PRIVILEGES;
 - **Network Type:** IPv4  
 - **VPC:** Default (`vpc-0b08fcea62cde9567`)  
 - **DB Subnet Group:** Default  
-- **Public Access:** No  
+- **Public Access:** yes
 - **VPC Security Group:** Choose existing → Select default
 
 Click **Create Database**
