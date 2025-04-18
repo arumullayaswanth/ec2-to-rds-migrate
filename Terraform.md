@@ -1,5 +1,5 @@
 # 🚀 EC2 to RDS MySQL Migration using Terraform, GitHub, and AWS DMS
-     ## EC2 to RDS Migration with Terraform
+## EC2 to RDS Migration with Terraform
 
 ## ✅ Step 1: Push Terraform Code to GitHub from VS Code
 **1. Navigate to the Home Directory**
@@ -225,8 +225,9 @@ FLUSH PRIVILEGES;
 6. Click **Create Role**
 
 ---
-
+# 🚀 RDS Migration with Terraform
 ## ✅ step-7: Step-by-Step: Configure RDS Migration with Terraform
+This guide walks you through setting up and running a DMS-based RDS migration using Terraform.
 
 **1. Change Into the Cloned Directory**
 ```bash
@@ -240,53 +241,71 @@ ls
 ```bash
 cd rds
 ```
-📂 Step 2: Ensure your Terraform files are ready
-Inside the rds folder, you should have:
+**4. List the Files in the Directory**
+```bash
+ls
+```
+   **📂 Step 2: Ensure your Terraform files are ready**
+       •  Inside the rds folder, you should have:
 
-main.tf
+          - main.tf
 
-dms.json
+           - dms.json
 
-table_mappings.json
-
-
+            - table_mappings.json
 
 
-## ✅ Step 7: Copy EC2 Public IPv4 DNS ( Name: database-source-ec2 )
-•	Go to EC2 > Instances > database-source-ec2
+---
+
+## ✅ Step 8: Copy EC2 Public IPv4 DNS ( Name: database-source-ec2 )
+•	Go to EC2 > Instances > database-mysql
 •	Select your instance → Copy Public IPv4 DNS
 
----
 
-## ✅ Step 8: Update `main.tf` with Public IPv4 DNS EC2 DNS
+## ✅ Step 9: Update `main.tf` with Public IPv4 DNS EC2 DNS
+•	Go to vs code > ec2-to-rds-migrate > rds > main.tf
 ```hcl
+resource "aws_dms_endpoint" "source_endpoint" {
 server_name = "ec2-13-232-36-249.ap-south-1.compute.amazonaws.com"
+}
 ```
+## ✅ Step 10: Get RDS Endpoint
+1. Go to **RDS → Databases** > Select your DB instance (my-rds-db) > Scroll to **Connectivity & Security** > Copy the **Endpoint**
+
+Example:
+```
+my-rds-db-dbc0n8k0a0swtz.us-east-1.rds.amazonaws.com
+```
+## ✅ Step 11: Update `main.tf` with Public IPv4 DNS EC2 DNS
+•	Go to vs code > ec2-to-rds-migrate > rds > main.tf
+```hcl
+resource "aws_dms_endpoint" "target_endpoint" {
+server_name     = "my-rds-db.c0n8k0a0swtz.us-east-1.rds.amazonaws.com"  #databade end point
+}
+
 
 ---
 
-## ✅ Step 11: Push Updated Code to GitHub
+## ✅ Step 12: Push Updated Code to GitHub
+
 ```bash
 git status
 ```
 ```bash
 git add .
 ```
-```bash
-git add .
-```
+
 ```bash
 git commit -m "project"
 ```
 ```bash
 git pull origin master --rebase
-git push origin master
 ```
 ```bash
 git push origin master
 ```
 ---
-## ✅ Step 12: Run Terraform Commands
+## ✅ Step 13: Run Terraform Commands
 
 ```bash
 terraform init
@@ -301,22 +320,31 @@ terraform plan
 ```bash
 terraform apply -auto-approve
 ```
-**To delete both your EC2 instance and RDS instance using Terraform, you need to  this command**
 
-```bash
-terraform destroy -auto-approve
-```
+---
+## 🔌 Step 14: Test DMS Endpoint Connections (Manual Step)
+
+1. Go to **AWS Console**
+2. Open **AWS DMS Console**
+3. Navigate to **Endpoints**
+4. Select your **Source** and **Target** endpoints
+5. Click **"Test connection"**
+6. Ensure the correct **Replication Instance** is selected
+7. Wait until both tests show **Successful**
 
 ---
 
-## ✅ Step 13: Start DMS Migration Task
-1. Go to **AWS → DMS → Database Migration Tasks**
-2. Select your migration task
-3. Click **Actions → Restart/Resume**
+## ▶️ Step 15: Start the DMS Replication Task (Manual Step)
+ 
+1. In the AWS DMS Console, go to **"Database migration tasks"**
+2. Select `My-DMS-Task`
+3. Click **Start/Resume**
 
 ---
 
-## ✅ Step 14: Get RDS Endpoint
+---
+
+## ✅ Step 16: Get RDS Endpoint
 1. Go to **RDS → Databases**
 2. Select your DB instance
 3. Scroll to **Connectivity & Security**
@@ -327,7 +355,7 @@ Example:
 my-sqlserver-dbc0n8k0a0swtz.us-east-1.rds.amazonaws.com
 ```
 ---
-## ✅ Step 15: Connect to RDS via MySQL Workbench
+## ✅ Step 17: Connect to RDS via MySQL Workbench
 1. Open **MySQL Workbench**
 2. Go to **Database > Manage Connections**
 3. Fill in:
@@ -342,11 +370,23 @@ my-sqlserver-dbc0n8k0a0swtz.us-east-1.rds.amazonaws.com
 
 ---
 
-## ✅ Step 16: Create and Verify Database
+## ✅ Step 18: Create and Verify Database
 ```sql
 CREATE DATABASE vsv;
 USE vsv;
 SHOW TABLES;
 ```
 Click ⚡ to execute and verify your tables and data.
+
+
+## 🧹 Step 17: Destroy Resources (If needed)
+
+To remove all created AWS resources:
+
+```bash
+terraform destroy -auto-approve
+```
+**This will delete your EC2, RDS, and DMS setup.**
+
+
 
