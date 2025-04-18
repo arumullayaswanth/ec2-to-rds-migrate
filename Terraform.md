@@ -18,7 +18,6 @@ git clone https://github.com/arumullayaswanth/ec2-to-rds-migrate.git
 ```
 ```bash
 cd ec2-to-rds-migrate
-ls
 ```
 ```bash
 ls
@@ -41,90 +40,15 @@ terraform apply -auto-approve
 ```
 **To delete both your EC2 instance and RDS instance using Terraform, you need to  this command**
 
-terraform destroy -auto-approve
 ```bash
 terraform destroy -auto-approve
 ```
 
 ---
 
-## ✅ Step 2: Create IAM Role for Replication Instance
-1. Go to **AWS Console → IAM → Roles → Create Role**
-2. **Trusted entity type**: AWS Service
-3. **Use case**: DMS
-4. **Permissions**: AdministratorAccess
-5. **Role Name**: `dms-cloudwatch-log-role`
-6. Click **Create Role**
-
----
-
-## ✅ Step 3: Create IAM Role for Endpoint
-1. Again, go to **IAM → Create Role**
-2. **Trusted entity**: AWS Service
-3. **Use case**: DMS
-4. **Permissions**: AdministratorAccess
-5. **Role Name**: `dms-vpc-role`
-6. Click **Create Role**
-
----
-
-## ✅ Step 4: Create MySQL Database
-
-### 🔹 1. Launch MySQL RDS Instance
-1. Go to the AWS Console.
-2. In the Search Bar, type RDS and select it from the dropdown.
-3. In the left-side menu of the RDS Dashboard, click **Databases**.
-4. Click **Create Database**.
-5. Choose **Standard Create**.
-
-### 🔹 2. Set Configuration
-- **Engine type:** MySQL  
-- **Version:** MySQL 8.4.3  
-- **Templates:** Free tier  
-- **DB Instance Identifier:** `my-sqlserver-db`
-
-### 🔸 Credentials Settings:
-- **Master Username:** `admin`  
-- **Password Management:** Self-managed  
-- **Master Password:** `Yaswanth123reddy`  
-- **Confirm Password:** `Yaswanth123reddy`
-
-### 🔹 3. Instance & Network Settings
-- **DB Instance Class:** `db.t3.micro`  
-- **Storage:** 20 GiB  
-- **Compute Resources:** Don’t connect to EC2  
-- **Network Type:** IPv4  
-- **VPC:** Default (`vpc-0b08fcea62cde9567`)  
-- **DB Subnet Group:** Default  
-- **Public Access:** yes  
-- **VPC Security Group:** Choose existing → Select default
-
-Click **Create Database**
-
----
-## ✅ Step 5: Launch Source EC2 Instance
-1. Go to EC2 Console → Click on "Launch Instance"
-2. **Name and Tags**
-   - Name: `database-source-ec2`
-3. **Application and OS Images (AMI)**
-   - Select: `Amazon Linux 2 AMI (HVM) – Kernel 5.10, SSD Volume Type`
-4. **Instance Type**
-   - Choose: `t2.micro (Free Tier eligible)`
-5. **Key Pair (Login)**
-   - Choose your key pair: `my-key-pair`
-6. **Network Settings**
-   - Select Allow all traffic (Security Group)
-   - Or manually Add Inbound Rule:
-     - Type: MySQL/Aurora
-     - Protocol: TCP
-     - Port Range: 3306
-     - Source: Your IP (or specific IP range)
-7. **Configure Storage**
-   - Leave default (8 GiB General Purpose SSD)
-8. **Launch Instance**
 
 
----
+
 
 ---
 
@@ -136,65 +60,30 @@ Click **Create Database**
 ---
 
 ## ✅ Step 7: Install and Configure MySQL 8.0 on Source EC2
-1. **Update the Package Index**
-   ```bash
-   sudo su -
-   sudo yum update -y
-   ```
 
-2. **Download MySQL 8.0 Community Release Package**
-   ```bash
-   wget https://repo.mysql.com/mysql80-community-release-el7-5.noarch.rpm
-   ```
-
-3. **Install MySQL Repository and Import GPG Keys**
-   ```bash
-   sudo yum install mysql80-community-release-el7-5.noarch.rpm -y
-   sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
-   sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql
-   sudo yum makecache
-   ```
-
-4. **Install MySQL Server**
-   ```bash
-   sudo yum install mysql-community-server -y
-   ```
-
-5. **Verify Installation**
-   ```bash
-   mysql -V
-   ```
-
-6. **Start and Enable MySQL**
-   ```bash
-   sudo systemctl start mysqld
-   sudo systemctl enable mysqld
-   systemctl status mysqld
-   ```
-
-7. **Retrieve Temporary Root Password**
+1. **Retrieve Temporary Root Password**
    ```bash
    sudo grep 'password' /var/log/mysqld.log
    ```
 
-8. **Login to MySQL Using the Temporary Password**
+2. **Login to MySQL Using the Temporary Password**
    ```bash
    sudo mysql -u root -p
    ```
    🔐 Enter the temporary password from Step 7
 
-9. **Change the Root Password**
+3. **Change the Root Password**
    ```bash
    ALTER USER 'root'@'localhost' IDENTIFIED BY 'Admin@123';
    SHOW DATABASES;
    ```
-10. **Exit and Re-login with the New Password**
+4. **Exit and Re-login with the New Password**
   ```bash
   sudo mysql -u root -p
   ```
   Enter Admin@123 when prompted.
  
-11. **Create a New Database and Table**
+5. **Create a New Database and Table**
    ```sql
    CREATE DATABASE vsv;
    USE vsv;
@@ -208,7 +97,7 @@ Click **Create Database**
    );
    ```
 
-12. **Insert Sample Records**
+6. **Insert Sample Records**
    ```sql
    INSERT INTO customers (customer_id, first_name, last_name, company, city) VALUES
    ('DD37Cf93aecA6Dc', 'Sheryl', 'Baxter', 'Rasmussen Group', 'East Leonard'),
@@ -219,12 +108,12 @@ Click **Create Database**
    ('2d08FB17EE273F4', 'Aimee', 'Downs', 'Steele Group', 'Chavezborough');
    ```
 
-13. **Verify Data**
+7. **Verify Data**
    ```sql
    SELECT * FROM vsv.customers;
    ```
 
-14 **User Table SQL Script**
+8 **User Table SQL Script**
 
 # Table Creation
 
@@ -241,7 +130,7 @@ CREATE TABLE user (
 
 ---
 
-15. **how All Tables**
+9. **how All Tables**
 
 ```sql
 SHOW TABLES;
@@ -249,7 +138,7 @@ SHOW TABLES;
 
 ---
 
-16. **Insert Sample Data**
+10. **Insert Sample Data**
 
 > These records assume the table has already been expanded with additional fields like `email`, `phone`, etc. If not, you should alter the table accordingly.
 
@@ -263,7 +152,7 @@ INSERT INTO user (customer_id, first_name, last_name, company, city) VALUES
 
 ---
 
-17. **Query the Table**
+11. **Query the Table**
 
 ```sql
 SELECT * FROM vsv.user;
@@ -273,10 +162,7 @@ SELECT * FROM vsv.user;
 
 
 
----
-
-
-# ✅ Step 8: Grant Remote Access and Permissions
+# ✅ Step 4: Grant Remote Access and Permissions
 
 1. **Check Existing Users**
 ```sql
@@ -313,13 +199,48 @@ FLUSH PRIVILEGES;
 ```
 ---
 
-## ✅ Step 9: Copy EC2 Public IPv4 DNS ( Name: database-source-ec2 )
+
+## ✅ Step 5: Create IAM Role for Replication Instance
+1. Go to **AWS Console → IAM → Roles → Create Role**
+2. **Trusted entity type**: AWS Service
+3. **Use case**: DMS
+4. **Permissions**: AdministratorAccess
+5. **Role Name**: `dms-cloudwatch-log-role`
+6. Click **Create Role**
+
+---
+
+## ✅ Step 6: Create IAM Role for Endpoint
+1. Again, go to **IAM → Create Role**
+2. **Trusted entity**: AWS Service
+3. **Use case**: DMS
+4. **Permissions**: AdministratorAccess
+5. **Role Name**: `dms-vpc-role`
+6. Click **Create Role**
+
+---
+
+```bash
+cd ec2-to-rds-migrate
+```
+```bash
+ls
+```
+```bash
+cd dns
+```
+
+
+
+
+
+## ✅ Step 7: Copy EC2 Public IPv4 DNS ( Name: database-source-ec2 )
 •	Go to EC2 > Instances > database-source-ec2
 •	Select your instance → Copy Public IPv4 DNS
 
 ---
 
-## ✅ Step 10: Update `main.tf` with Public IPv4 DNS EC2 DNS
+## ✅ Step 8: Update `main.tf` with Public IPv4 DNS EC2 DNS
 ```hcl
 server_name = "ec2-13-232-36-249.ap-south-1.compute.amazonaws.com"
 ```
@@ -329,20 +250,45 @@ server_name = "ec2-13-232-36-249.ap-south-1.compute.amazonaws.com"
 ## ✅ Step 11: Push Updated Code to GitHub
 ```bash
 git status
+```
+```bash
 git add .
+```
+```bash
+git add .
+```
+```bash
 git commit -m "project"
+```
+```bash
 git pull origin master --rebase
+git push origin master
+```
+```bash
 git push origin master
 ```
 ---
 ## ✅ Step 12: Run Terraform Commands
+
 ```bash
 terraform init
-terraform plan
-terraform apply -auto-approve
-# terraform destroy -auto-approve
-
 ```
+```bash
+terraform validate
+```
+```bash
+terraform plan
+```
+
+```bash
+terraform apply -auto-approve
+```
+**To delete both your EC2 instance and RDS instance using Terraform, you need to  this command**
+
+```bash
+terraform destroy -auto-approve
+```
+
 ---
 
 ## ✅ Step 13: Start DMS Migration Task
