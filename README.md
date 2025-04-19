@@ -1,3 +1,5 @@
+# 🚀 AWS Database Migration Service: Migrating Databases from EC2 to AWS RDS Using DMS (Manual Process)
+
 ## ✅ Step 1: Launch the Source EC2 Instance
 1. Go to EC2 Console → Click on "Launch Instance"
 2. **Name and Tags**
@@ -147,19 +149,11 @@ SHOW TABLES;
 > These records assume the table has already been expanded with additional fields like `email`, `phone`, etc. If not, you should alter the table accordingly.
 
 ```sql
-INSERT INTO user (
-    customer_id, first_name, last_name, email, phone, company, city, state, country, postal_code, address_line1, address_line2, is_active
-) VALUES 
-('CUST1006', 'Aisha', 'Khan', 'aisha.khan@example.com', '+91-9876543210', 'TechNova', 'Mumbai', 'MH', 'India', '400001', '14 Marine Drive', 'Floor 3', TRUE),
-('CUST1007', 'Liam', 'O\'Connor', 'liam.oconnor@example.com', '+353-85-1234567', 'GreenFields Ltd.', 'Dublin', NULL, 'Ireland', 'D02 Y006', '25 St. Stephen\'s Green', NULL, TRUE),
-('CUST1008', 'Mia', 'López', 'mia.lopez@example.com', '+34-600-123-456', 'SolarTech', 'Barcelona', 'Catalonia', 'Spain', '08001', 'Carrer de Balmes 45', NULL, FALSE),
-('CUST1009', 'Noah', 'Kim', 'noah.kim@example.com', '+82-10-1234-5678', 'NeoGen', 'Seoul', NULL, 'South Korea', '04524', '77 Gwanghwamun-ro', NULL, TRUE),
-('CUST1010', 'Olivia', 'Nguyen', 'olivia.nguyen@example.com', '+84-90-123-4567', 'VN Digital', 'Ho Chi Minh City', NULL, 'Vietnam', '700000', '100 Nguyen Hue', NULL, TRUE),
-('CUST1011', 'Ethan', 'Brown', 'ethan.brown@example.com', '+1-312-555-0198', 'WindyTech', 'Chicago', 'IL', 'USA', '60601', '500 Michigan Ave', 'Suite 301', TRUE),
-('CUST1012', 'Sophia', 'Meier', 'sophia.meier@example.com', '+49-170-1234567', 'München Tech', 'Munich', 'Bavaria', 'Germany', '80331', 'Karlsplatz 3', NULL, TRUE),
-('CUST1013', 'Lucas', 'Dubois', 'lucas.dubois@example.com', '+33-6-12-34-56-78', 'PariTech', 'Paris', 'Île-de-France', 'France', '75001', '10 Rue de Rivoli', NULL, FALSE),
-('CUST1014', 'Chloe', 'Wilson', 'chloe.wilson@example.com', '+1-604-555-0123', 'Maple Systems', 'Vancouver', 'BC', 'Canada', 'V6B 3K9', '808 Granville St', NULL, TRUE),
-('CUST1015', 'Jack', 'Taylor', 'jack.taylor@example.com', '+61-3-9123-4567', 'Southern Solutions', 'Melbourne', 'VIC', 'Australia', '3000', '55 Collins St', 'Level 6', TRUE);
+INSERT INTO user (customer_id, first_name, last_name, company, city) VALUES
+('CUST1001', 'John', 'Doe', 'TechCorp', 'New York'),
+('CUST1002', 'Jane', 'Smith', 'InnovateX', 'San Francisco'),
+('CUST1003', 'Aidan', 'Brown', 'GlobalTech', 'Los Angeles');
+
 ```
 
 ---
@@ -263,51 +257,28 @@ Click **Create Database**
 👉 Example:  
 `my-sqlserver-dbc0n8k0a0swtz.us-east-1.rds.amazonaws.com`
 
+
+## 🔄 Verification Steps
 ---
-
-## 🔹 5. Connect with MySQL Workbench
-1. Open **MySQL Workbench**.  
-2. Go to **Database > Manage Connections**.  
-3. Fill in:  
-   - **Connection Name:** AWS MySQL  
-   - **Hostname:** `my-sqlserver-dbc0n8k0a0swtz.us-east-1.rds.amazonaws.com`  
-   - **Port:** 3306  
-   - **Username:** admin  
-   - **Password:** Click “Store in Vault” → Enter `Yaswanth123reddy`  
-4. Click **Test Connection**  
-   - ✅ If successful: “Connection parameters are correct.”  
-5. Click **OK** to save the connection.
-
----
-
-## 🔹 6. Create Database Schema
-1. Double-click your saved AWS connection.  
-2. Run the following SQL commands:
-```sql
-CREATE DATABASE vsv;
-USE vsv;
-SHOW TABLES;
-```
-3. Click the lightning bolt icon (⚡) to execute.
+**Connect to RDS via MySQL Workbench**
+1. Open **MySQL Workbench**
+2. Go to **Database > Manage Connections**
+3. Fill in:
+   - Connection Name: `AWS MySQL`
+   - Hostname: `<RDS endpoint>`ex:`my-sqlserver-dbc0n8k0a0swtz.us-east-1.rds.amazonaws.com` 
+   - Port: `3306`
+   - Username: `admin`
+   - Password: `Yaswanth123reddy`
+4. Click **Test Connection**
+     - ✅ If successful: “Connection parameters are correct.”  
+6. If successful → Click **OK**
 
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 ---
-# ✅ SETUP DATABASE MIGRATION SERVICE
+---
+#  🚀 SETUP RDS Migration  MIGRATION SERVICE
 
 ### ✅ Step 1: Create Replication Instance & IAM Role
 
@@ -448,24 +419,71 @@ Once the task runs, DMS will:
 ---
 
 ## 🔄 Verification Steps
+---
+## ✅ Step 5: Connect to RDS via MySQL Workbench
+1. Open **MySQL Workbench**
+2. Go to **Database > Manage Connections**
+3. Fill in:
+   - Connection Name: `AWS MySQL`
+   - Hostname: `<RDS endpoint>`ex:`my-sqlserver-dbc0n8k0a0swtz.us-east-1.rds.amazonaws.com` 
+   - Port: `3306`
+   - Username: `admin`
+   - Password: `Yaswanth123reddy`
+4. Click **Test Connection**
+     - ✅ If successful: “Connection parameters are correct.”  
+6. If successful → Click **OK**
 
-### 🔹 Verify Migration to RDS:
-In MySQL Workbench (connected to RDS), run:
-```sql
-SELECT * FROM vsv.customers;
-```
-✅ You should see existing EC2 records.
+---
 
-### 🔹 Insert New Records in EC2 (source):
-In EC2 MySQL DB:
+## ✅ Step 6: Create and Verify Database
 ```sql
-INSERT INTO customers (customer_id, first_name, last_name, company, city) 
-VALUES ('123132d08FB17EE273F4', 'vsv', 'veera', 'Steele Groupd', 'hyderabad');
+CREATE DATABASE vsv;
+USE vsv;
+SHOW TABLES;
+```
+Click ⚡ to execute and verify your tables and data.
+
+## ✅ Step 7 : Step-by-Step: Insert Data into EC2 MySQL & Verify in RDS
+
+## 1. Insert Sample Data
+
+### `customers` Table
+
+```sql
+INSERT INTO customers (customer_id, first_name, last_name, company, city) VALUES
+('CUST001', 'John', 'Doe', 'Acme Corp', 'New York'),
+('CUST002', 'Jane', 'Smith', 'Global Tech', 'San Francisco');
 ```
 
-### 🔹 Verify CDC Replication:
-Reconnect to RDS Workbench, run:
+### `user` Table
+
 ```sql
-SELECT * FROM vsv.customers;
+INSERT INTO `user` (customer_id, first_name, last_name, company, city) VALUES
+('USR001', 'Alice', 'Brown', 'TechSphere', 'Austin'),
+('USR002', 'Brian', 'Taylor', 'DevSolutions', 'Denver');
 ```
-✅ The new record(s) should appear automatically!
+
+---
+
+## 2. Verify Data
+
+```sql
+SELECT * FROM customers;
+SELECT * FROM `user`;
+```
+
+---
+
+## ✅ Step 8: Create and Verify Database MySQL Workbench
+```sql
+CREATE DATABASE vsv;
+USE vsv;
+SHOW TABLES;
+```
+Click ⚡ to execute and verify your tables and data.
+
+
+
+
+
+
