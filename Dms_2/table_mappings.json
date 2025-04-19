@@ -19,7 +19,7 @@
       "rule-name": "118010566",
       "object-locator": {
         "schema-name": "vsv",
-        "table-name": "users"
+        "table-name": "user"
       },
       "rule-action": "include",
       "filters": [],
