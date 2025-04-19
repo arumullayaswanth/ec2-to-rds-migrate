@@ -1,4 +1,4 @@
-# 🚀 EC2 to RDS MySQL Migration using Terraform, GitHub, and AWS DMS
+# 🚀 AWS Database Migration Service: Migrating Databases from EC2 to AWS RDS Using DMS (Manual Process)
 ## EC2 to RDS Migration with Terraform
 
 ## ✅ Step 1: Push Terraform Code to GitHub from VS Code
