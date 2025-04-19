@@ -408,6 +408,14 @@ SELECT * FROM `user`;
 
 ---
 
+## ✅ Step 18: Create and Verify Database MySQL Workbench
+```sql
+CREATE DATABASE vsv;
+USE vsv;
+SHOW TABLES;
+```
+Click ⚡ to execute and verify your tables and data.
+
 
 ## 🧹 Step 17: Destroy Resources (If needed)
 
