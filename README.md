@@ -1,5 +1,32 @@
 # 🚀 AWS Database Migration Service: Migrating Databases from EC2 to AWS RDS Using DMS (Manual Process)
 
+<table style="width: 100%; margin-bottom: 20px;">
+  <tr>
+    <td align="center" style="padding: 10px; background-color: #f4f4f9; border-radius: 8px;">
+      <img src="https://github.com/arumullayaswanth/ec2-to-rds-migrate/blob/a8a5dc2cea620f6553770394107925250458f0c5/Pictures_ec2-to-rds/ec2-to-rds-migrate-1.png" width="80%" style="border: 2px solid #ddd; border-radius: 10px;">
+      <br><b>EC2 to RDS Migration Using AWS DMS - Architecture Diagram</b>
+    </td>
+  </tr>
+</table>
+
+<table style="width: 100%; margin-bottom: 20px;">
+  <tr>
+    <td align="center" style="padding: 10px; background-color: #e9f7f5; border-radius: 8px;">
+      <img src="https://github.com/arumullayaswanth/ec2-to-rds-migrate/blob/a8a5dc2cea620f6553770394107925250458f0c5/Pictures_ec2-to-rds/ec2-to-rds-migrate-2.png" width="80%" style="border: 2px solid #ddd; border-radius: 10px;">
+      <br><b>EC2 to RDS Database Migration - DMS Manual Workflow</b>
+    </td>
+  </tr>
+</table>
+
+<table style="width: 100%; margin-bottom: 20px;">
+  <tr>
+    <td align="center" style="padding: 10px; background-color: #e9f7f5; border-radius: 8px;">
+      <img src="https://github.com/arumullayaswanth/ec2-to-rds-migrate/blob/a8a5dc2cea620f6553770394107925250458f0c5/Pictures_ec2-to-rds/AWS%20Database%20Migration%20Services.png" width="80%" style="border: 2px solid #ddd; border-radius: 10px;">
+      <br><b>Database Migration Overview: EC2 → RDS via DMS</b>
+    </td>
+  </tr>
+</table>
+
 ## ✅ Step 1: Launch the Source EC2 Instance
 1. Go to EC2 Console → Click on "Launch Instance"
 2. **Name and Tags**
