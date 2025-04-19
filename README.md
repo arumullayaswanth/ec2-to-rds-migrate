@@ -12,7 +12,7 @@
 <table style="width: 100%; margin-bottom: 20px;">
   <tr>
     <td align="center" style="padding: 10px; background-color: #e9f7f5; border-radius: 8px;">
-      <img src="https://github.com/arumullayaswanth/ec2-to-rds-migrate/blob/a8a5dc2cea620f6553770394107925250458f0c5/Pictures_ec2-to-rds/ec2-to-rds-migrate-2.png" width="100%" style="border: 2px solid #ddd; border-radius: 10px;">
+      <img src="https://github.com/arumullayaswanth/ec2-to-rds-migrate/blob/a8a5dc2cea620f6553770394107925250458f0c5/Pictures_ec2-to-rds/ec2-to-rds-migrate-2.png" width="120%" style="border: 2px solid #ddd; border-radius: 10px;">
       <br><b>EC2 to RDS Database Migration - DMS Manual Workflow</b>
     </td>
   </tr>
@@ -21,7 +21,7 @@
 <table style="width: 100%; margin-bottom: 20px;">
   <tr>
     <td align="center" style="padding: 10px; background-color: #e9f7f5; border-radius: 8px;">
-      <img src="https://github.com/arumullayaswanth/ec2-to-rds-migrate/blob/a8a5dc2cea620f6553770394107925250458f0c5/Pictures_ec2-to-rds/AWS%20Database%20Migration%20Services.png" width="100%" style="border: 2px solid #ddd; border-radius: 10px;">
+      <img src="https://github.com/arumullayaswanth/ec2-to-rds-migrate/blob/a8a5dc2cea620f6553770394107925250458f0c5/Pictures_ec2-to-rds/AWS%20Database%20Migration%20Services.png" width="120%" style="border: 2px solid #ddd; border-radius: 10px;">
       <br><b>Database Migration Overview: EC2 → RDS via DMS</b>
     </td>
   </tr>
