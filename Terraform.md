@@ -377,6 +377,37 @@ SHOW TABLES;
 ```
 Click ⚡ to execute and verify your tables and data.
 
+## ✅ Step 19 : Step-by-Step: Insert Data into EC2 MySQL & Verify in RDS
+
+## 4️⃣ Insert Sample Data
+
+### `customers` Table
+
+```sql
+INSERT INTO customers (customer_id, first_name, last_name, company, city) VALUES
+('CUST001', 'John', 'Doe', 'Acme Corp', 'New York'),
+('CUST002', 'Jane', 'Smith', 'Global Tech', 'San Francisco');
+```
+
+### `user` Table
+
+```sql
+INSERT INTO `user` (customer_id, first_name, last_name, company, city) VALUES
+('USR001', 'Alice', 'Brown', 'TechSphere', 'Austin'),
+('USR002', 'Brian', 'Taylor', 'DevSolutions', 'Denver');
+```
+
+---
+
+## 5️⃣ Verify Data
+
+```sql
+SELECT * FROM customers;
+SELECT * FROM `user`;
+```
+
+---
+
 
 ## 🧹 Step 17: Destroy Resources (If needed)
 
