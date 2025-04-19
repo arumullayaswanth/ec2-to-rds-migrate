@@ -279,14 +279,14 @@ my-rds-db-dbc0n8k0a0swtz.us-east-1.rds.amazonaws.com
 ```
 ## ✅ Step 11: Update `main.tf` with Public IPv4 DNS EC2 DNS
 •	Go to vs code > ec2-to-rds-migrate > Dms > main.tf
-```hcl
-resource "aws_dms_endpoint" "target_endpoint" {
-server_name     = "my-rds-db.c0n8k0a0swtz.us-east-1.rds.amazonaws.com"  #databade end point
-}
+   ```hcl
+        resource "aws_dms_endpoint" "target_endpoint" {
+        server_name     = "my-rds-db.c0n8k0a0swtz.us-east-1.rds.amazonaws.com"  #databade end point
+      }
+  ```
 ---
 
 ## ✅ Step 12: Push Updated Code to GitHub
-
 ```bash
 git status
 ```
