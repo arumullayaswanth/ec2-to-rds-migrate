@@ -379,7 +379,7 @@ Click ⚡ to execute and verify your tables and data.
 
 ## ✅ Step 19 : Step-by-Step: Insert Data into EC2 MySQL & Verify in RDS
 
-## 4️⃣ Insert Sample Data
+## 1. Insert Sample Data
 
 ### `customers` Table
 
@@ -399,7 +399,7 @@ INSERT INTO `user` (customer_id, first_name, last_name, company, city) VALUES
 
 ---
 
-## 5️⃣ Verify Data
+## 2. Verify Data
 
 ```sql
 SELECT * FROM customers;
@@ -417,7 +417,7 @@ SHOW TABLES;
 Click ⚡ to execute and verify your tables and data.
 
 
-## 🧹 Step 17: Destroy Resources (If needed)
+## 🧹 Step 19: Destroy Resources (If needed)
 
 To remove all created AWS resources:
 
