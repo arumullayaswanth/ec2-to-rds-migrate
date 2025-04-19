@@ -1,4 +1,4 @@
-# 🚀 AWS Database Migration Service: Migrating Databases from EC2 to AWS RDS Using DMS (using Terraform)
+# 🚀 AWS Database Migration Service: Migrating Databases from EC2 to AWS RDS Using DMS (using Terraform).
 # 🚀 EC2 to RDS MySQL Migration using Terraform, GitHub, and AWS DMS
 ## EC2 to RDS Migration with Terraform
 
