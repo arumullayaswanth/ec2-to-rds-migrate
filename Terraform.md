@@ -239,7 +239,7 @@ ls
 ```
 **3. Navigate to the ec2-rds Folder**
 ```bash
-cd rds
+cd Dms
 ```
 **4. List the Files in the Directory**
 ```bash
@@ -263,7 +263,7 @@ ls
 
 
 ## ✅ Step 9: Update `main.tf` with Public IPv4 DNS EC2 DNS
-•	Go to vs code > ec2-to-rds-migrate > rds > main.tf
+•	Go to vs code > ec2-to-rds-migrate > Dms > main.tf
 ```hcl
 resource "aws_dms_endpoint" "source_endpoint" {
 server_name = "ec2-13-232-36-249.ap-south-1.compute.amazonaws.com"
@@ -277,7 +277,7 @@ Example:
 my-rds-db-dbc0n8k0a0swtz.us-east-1.rds.amazonaws.com
 ```
 ## ✅ Step 11: Update `main.tf` with Public IPv4 DNS EC2 DNS
-•	Go to vs code > ec2-to-rds-migrate > rds > main.tf
+•	Go to vs code > ec2-to-rds-migrate > Dms > main.tf
 ```hcl
 resource "aws_dms_endpoint" "target_endpoint" {
 server_name     = "my-rds-db.c0n8k0a0swtz.us-east-1.rds.amazonaws.com"  #databade end point
