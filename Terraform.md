@@ -69,6 +69,7 @@ terraform destroy -auto-approve
 
 1. **Retrieve Temporary Root Password**
    ```bash
+   sudo -i
    sudo grep 'password' /var/log/mysqld.log
    ```
 
@@ -282,8 +283,6 @@ my-rds-db-dbc0n8k0a0swtz.us-east-1.rds.amazonaws.com
 resource "aws_dms_endpoint" "target_endpoint" {
 server_name     = "my-rds-db.c0n8k0a0swtz.us-east-1.rds.amazonaws.com"  #databade end point
 }
-
-
 ---
 
 ## ✅ Step 12: Push Updated Code to GitHub
