@@ -12,7 +12,7 @@
 <table style="width: 100%; margin-bottom: 20px;">
   <tr>
     <td align="center" style="padding: 10px; background-color: #e9f7f5; border-radius: 8px;">
-      <img src="https://github.com/arumullayaswanth/ec2-to-rds-migrate/blob/a8a5dc2cea620f6553770394107925250458f0c5/Pictures_ec2-to-rds/ec2-to-rds-migrate-2.png" width="120%" style="border: 2px solid #ddd; border-radius: 10px;">
+      <img src="https://github.com/arumullayaswanth/ec2-to-rds-migrate/blob/16167711c188c73ed1a906fe0d4d8b00363f918f/Pictures_ec2-to-rds/ec2-to-rds-migrate-2.png" width="120%" style="border: 2px solid #ddd; border-radius: 10px;">
       <br><b>EC2 to RDS Database Migration - DMS Manual Workflow</b>
     </td>
   </tr>
