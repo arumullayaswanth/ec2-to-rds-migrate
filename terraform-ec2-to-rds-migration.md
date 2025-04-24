@@ -268,7 +268,7 @@ ls
 •	Go to vs code > ec2-to-rds-migrate > Dms > main.tf
 ```hcl
 resource "aws_dms_endpoint" "source_endpoint" {
-server_name = "ec2-13-232-36-249.ap-south-1.compute.amazonaws.com"
+server_name = "ec2-13-232-36-249.us-east-1.compute.amazonaws.com"
 }
 ```
 ## ✅ Step 10: Get RDS Endpoint
