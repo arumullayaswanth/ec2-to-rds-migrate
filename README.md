@@ -32,7 +32,7 @@
 2. **Name and Tags**
    - Name: `database-source-ec2`
 3. **Application and OS Images (AMI)**
-   - Select: `Amazon Linux 2 AMI (HVM) – Kernel 5.10, SSD Volume Type`
+   - Select: `Amazon Linux 2023 `
 4. **Instance Type**
    - Choose: `t2.micro (Free Tier eligible)`
 5. **Key Pair (Login)**
@@ -63,54 +63,41 @@
    sudo su -
    sudo yum update -y
    ```
-
-2. **Download MySQL 8.0 Community Release Package**
+2. **Install MySQL Server**
    ```bash
-   wget https://repo.mysql.com/mysql80-community-release-el7-5.noarch.rpm
+   sudo dnf install -y mariadb105-server
    ```
 
-3. **Install MySQL Repository and Import GPG Keys**
-   ```bash
-   sudo yum install mysql80-community-release-el7-5.noarch.rpm -y
-   sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
-   sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql
-   sudo yum makecache
-   ```
-
-4. **Install MySQL Server**
-   ```bash
-   sudo yum install mysql-community-server -y
-   ```
-
-5. **Verify Installation**
+3. **Verify Installation**
    ```bash
    mysql -V
    ```
 
-6. **Start and Enable MySQL**
+4. **Start and Enable MySQL**
    ```bash
+   sudo systemctl enable --now mariadb
    sudo systemctl start mysqld
    sudo systemctl enable mysqld
    systemctl status mysqld
    ```
 
-7. **Retrieve Temporary Root Password**
+5. **Retrieve Temporary Root Password**
    ```bash
    sudo grep 'password' /var/log/mysqld.log
    ```
 
-8. **Login to MySQL Using the Temporary Password**
+6. **Login to MySQL Using the Temporary Password**
    ```bash
    sudo mysql -u root -p
    ```
-   🔐 Enter the temporary password from Step 7
+   🔐 Enter the temporary password from Step 5
 
-9. **Change the Root Password**
+7. **Change the Root Password**
    ```bash
    ALTER USER 'root'@'localhost' IDENTIFIED BY 'Admin@123';
    SHOW DATABASES;
    ```
-10. **Exit and Re-login with the New Password**
+8. **Exit and Re-login with the New Password**
   ```bash
   sudo mysql -u root -p
   ```
